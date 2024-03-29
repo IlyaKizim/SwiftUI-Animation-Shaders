@@ -20,12 +20,12 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>RainEffect</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/0ad77241-e40a-4fd5-9371-83372a3b5f01" controls></video>
-  <p>Create file <code>Metal</code> this funtction return <code>half4</code>
+  <p>Create file <code>Metal</code>. This funtction return <code>half4</code>
   <pre><code>
     [[ stitchable ]] half4 rainFall(float2 pos, float4 boundingRect, float iTime, texture2d<half> image)
   </code></pre>
 
-  <p> If tou return  <code>half4</code> in Metal file you can use simple solution <code>foregroundStyle</code>, don`t forget use <code>TimelineView</code> to animate rain </p>
+  <p> If you return <code>half4</code> in Metal file you can use simple solution <code>foregroundStyle</code>, don`t forget use <code>TimelineView</code> to animate rain </p>
   <pre><code>
    TimelineView(.animation) {timeline in
                 Rectangle()
