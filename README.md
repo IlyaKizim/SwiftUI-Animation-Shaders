@@ -3,19 +3,19 @@
 
 🚀 Awesome Animation Concepts
 
-RainEffect 🎡: 
+RainEffect 💦: 
 
-FrostEffect 🌌: 
+FrostEffect 🧊❄️: 
 
-WaterRippleEffect ⚡: 
+WaterRippleEffect 🌊: 
 
-PlayerCircleShadow 💖: 
+PlayerCircleShadow 🔊🟢: 
 
-CustomLayoutWatch 🌟:
+CustomLayoutWatch ⌚🕘:
 
-PixelNumber 🌟: 
+PixelNumber 👾: 
 
-BacgroundAndSound 🌟: 
+BacgroundAndSound 🖼️🌊: 
 
 <div>
   <h2>RainEffect</h2>
