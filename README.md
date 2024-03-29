@@ -3,17 +3,17 @@
 
 🚀 Awesome Animation Concepts
 
-RainEffect 💦: 
+RainEffect 💦:  The effect of flowing drops using MetalSL on textures
 
-FrostEffect 🧊❄️: 
+FrostEffect 🧊❄️: The effect of freezing and defrosting the screen by moving the ball
 
-WaterRippleEffect 🌊: 
+WaterRippleEffect 🌊: The effect of waves using MetalKit and Metal
 
-PlayerCircleShadow 🔊🟢: 
+PlayerCircleShadow 🔊🟢: Sound visualization
 
-CustomLayoutWatch ⌚🕘:
+CustomLayoutWatch ⌚🕘: CustomLayout turning cubes into clocks with cool animations
 
-PixelNumber 👾: 
+PixelNumber 👾: Pixel numbers that break when colliding with waves
 
 BacgroundAndSound 🖼️🌊: 
 
