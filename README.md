@@ -68,11 +68,31 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>WaterRippleEffect</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/5a1a494c-27c3-4986-b8f9-3df2ba8eec6c" controls></video>
+  <p> Using <code>Metal</code> and <code>MetalKit</code> we can create <code>Renderer</code> 
   <pre><code>
-    private var animator: UIDynamicAnimator?
-    private var behavior: UICollisionBehavior?
+    import Metal
+    import MetalKit
+    class Renderer: NSObject, MTKViewDelegate, ObservableObject{
+    var view: MTKView!
+    }
   </code></pre>
-  <p>Use <code>UIDynamicAnimator</code> and <code>UICollisionBehavior</code> for dynamic animations and collision handling.</p>
+  <p> Using UIViewRepresentable we can display the view in SwiftUI
+  <pre><code>
+  struct MetalView: UIViewRepresentable {
+    var renderer: Renderer?
+    init(renderer: Renderer?) {
+        self.renderer = renderer
+    }  
+    func makeUIView(context: Context) -> MTKView {
+        guard let renderer = renderer else {
+            return MTKView(frame: .zero)
+        }
+        return renderer.view
+    }
+    func updateUIView(_ uiView: MTKView, context: Context) {
+    }
+}
+  </code></pre>
   <p><a href="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/blob/main/SwiftUI%20Animation%2BShaders/WaterRippleEffect/Wave.swift" target="_blank">View the code</a></p>
 </div>
 
