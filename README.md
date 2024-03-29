@@ -155,7 +155,7 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>PixelNumber</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/acf63bb2-a145-4a1f-ba10-57ca9e1b6daf" controls></video>
-  <p> We have simple <code>Shader</code> returnung coords </p>
+  <p> We have simple <code>Shader</code> returning coords </p>
   <pre><code>
     [[ stitchable ]] float2 pixel(float2 position, float strength) {
     float min_strength = max(strength, 0.0001);
