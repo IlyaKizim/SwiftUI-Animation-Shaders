@@ -44,11 +44,24 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>FrostEffect</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/7c706b7e-a551-4b40-ba11-7e52dad4a55f" controls></video>
+  <p> Function returning the same <code>half4</code>
   <pre><code>
-    private var animator: UIDynamicAnimator?
-    private var behavior: UICollisionBehavior?
+    [[stitchable]] half4 frost(float2 pos, float4 boundingRect, texture2d<half> image, float radius)
   </code></pre>
-  <p>Use <code>UIDynamicAnimator</code> and <code>UICollisionBehavior</code> for dynamic animations and collision handling.</p>
+
+  <p> This time we change the <code>radius</code> depending on the shift of the ball
+  <pre><code>
+   TimelineView(.animation) {timeline in
+                Rectangle()
+                    .foregroundStyle(
+                        ShaderLibrary.frost(
+                            .boundingRect,
+                            .image(Image("road")),
+                            .float(max(abs(dragOffset.width), abs(dragOffset.height)) * 0.009 + 1)
+                        )
+                    )
+    }
+  </code></pre>
   <p><a href="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/blob/main/SwiftUI%20Animation%2BShaders/RainAndFrost/RainAndFrost.swift" target="_blank">View the code</a> </p>
 </div>
 
