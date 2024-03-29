@@ -20,11 +20,24 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>RainEffect</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/0ad77241-e40a-4fd5-9371-83372a3b5f01" controls></video>
+  <p>Create file <code>Metal</code>
   <pre><code>
-    private var animator: UIDynamicAnimator?
-    private var behavior: UICollisionBehavior?
+    [[ stitchable ]] half4 rainFall(float2 pos, float4 boundingRect, float iTime, texture2d<half> image)
   </code></pre>
-  <p>Use <code>UIDynamicAnimator</code> and <code>UICollisionBehavior</code> for dynamic animations and collision handling.</p>
+
+  <p> If tou return  <code>half4</code> in Metal file you can use simple solution, don`t forget use <code>TimelineView<code> to animate rain
+  <pre><code>
+   TimelineView(.animation) {timeline in
+                Rectangle()
+                    .foregroundStyle(
+                        ShaderLibrary.rainFall(
+                            .boundingRect,
+                            .float(timeline.date.timeIntervalSince(date)),
+                            .image(Image("road"))
+                        )
+                    )
+    }
+  </code></pre>
   <p><a href="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/blob/main/SwiftUI%20Animation%2BShaders/RainAndFrost/RainAndFrost.swift" target="_blank">View the code</a> </p>
 </div>
 
