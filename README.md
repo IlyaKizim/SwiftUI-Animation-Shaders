@@ -15,7 +15,7 @@ CustomLayoutWatch ⌚🕘: CustomLayout turning cubes into clocks with cool anim
 
 PixelNumber 👾: Pixel numbers that break when colliding with waves
 
-BacgroundAndSound 🖼️🌊: 
+BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 
 <div>
   <h2>RainEffect</h2>
