@@ -25,7 +25,7 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
     [[ stitchable ]] half4 rainFall(float2 pos, float4 boundingRect, float iTime, texture2d<half> image)
   </code></pre>
 
-  <p> If tou return  <code>half4</code> in Metal file you can use simple solution <code>foregroundStyle</code>, don`t forget use <code>TimelineView</code> to animate rain
+  <p> If tou return  <code>half4</code> in Metal file you can use simple solution <code>foregroundStyle</code>, don`t forget use <code>TimelineView</code> to animate rain </p>
   <pre><code>
    TimelineView(.animation) {timeline in
                 Rectangle()
@@ -44,12 +44,12 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>FrostEffect</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/7c706b7e-a551-4b40-ba11-7e52dad4a55f" controls></video>
-  <p> Function returning the same <code>half4</code>
+  <p> Function returning the same <code>half4</code> </p>
   <pre><code>
     [[stitchable]] half4 frost(float2 pos, float4 boundingRect, texture2d<half> image, float radius)
   </code></pre>
 
-  <p> This time we change the <code>radius</code> depending on the shift of the ball
+  <p> This time we change the <code>radius</code> depending on the shift of the ball </p>
   <pre><code>
    TimelineView(.animation) {timeline in
                 Rectangle()
@@ -68,7 +68,7 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>WaterRippleEffect</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/5a1a494c-27c3-4986-b8f9-3df2ba8eec6c" controls></video>
-  <p> Using <code>Metal</code> and <code>MetalKit</code> we can create <code>Renderer</code> 
+  <p> Using <code>Metal</code> and <code>MetalKit</code> we can create <code>Renderer</code></p>
   <pre><code>
     import Metal
     import MetalKit
@@ -76,7 +76,7 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
     var view: MTKView!
     }
   </code></pre>
-  <p> Using UIViewRepresentable we can display the view in SwiftUI
+  <p> Using <code>UIViewRepresentable</code> we can display the view in SwiftUI</p>
   <pre><code>
   struct MetalView: UIViewRepresentable {
     var renderer: Renderer?
@@ -99,11 +99,32 @@ BacgroundAndSound 🖼️🌊: Simple and cool background with sound control
 <div>
   <h2>PlayerCircleShadow</h2>
   <video src="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/assets/122359658/8ed3b6b7-2f60-4de1-9005-52698391052e" controls></video>
+  <p> To get the empty <code>Circle()</code> use <code>.stroke</code> </p>
   <pre><code>
-    private var animator: UIDynamicAnimator?
-    private var behavior: UICollisionBehavior?
+    Circle()
+            .trim(from: 0, to: 1)
+            .stroke(style: StrokeStyle(lineWidth: lineWidth))
+            .frame(width: width)
   </code></pre>
-  <p>Use <code>UIDynamicAnimator</code> and <code>UICollisionBehavior</code> for dynamic animations and collision handling.</p>
+  <p>We have simple <code>Shader</code></p>
+  <pre><code>
+  [[ stitchable ]] float2 waveCircle(float2 position, float time, float speed, float smoothing, float strength) {
+    position.y += sin(time * speed + position.x / smoothing) * strength;
+    return position;
+  }
+  </code></pre>
+  <p>This <code>Shader</code> return the position, so we need to use <code>.distortionEffect()</code> </p> and don`t forget use <code>TimelineView</code> to animate
+  <pre><code>
+            .distortionEffect(
+                ShaderLibrary.waveCircle(
+                    .float(time),
+                    .float(speed),
+                    .float(smoothing),
+                    .float(strength)
+                ),
+                maxSampleOffset: CGSize(width: 200, height: 200)
+            )
+  </code></pre>
   <p><a href="https://github.com/IlyaKizim/SwiftUI-Animation-Shaders/blob/main/SwiftUI%20Animation%2BShaders/AudioPlayer/CircleShadow.swift" target="_blank">View the code</a></p>
 </div>
 
